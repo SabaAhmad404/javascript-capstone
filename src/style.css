@@ -1,3 +1,24 @@
-.hello {
-  color: red;
+@import url('https://fonts.googleapis.com/css2?family=Sevillana&display=swap');
+
+header {
+  background-color: black;
+  height: 4rem;
+  color: beige;
+}
+
+ul {
+  display: flex;
+  font-size: 1.7rem;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Sevillana', cursive;
+  height: 100%;
+  gap: 30px;
+  text-decoration: none;
+  list-style: none;
+}
+
+li :last-child {
+  text-decoration: none;
+  color: beige;
 }
