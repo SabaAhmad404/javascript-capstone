@@ -22,3 +22,19 @@ li :last-child {
   text-decoration: none;
   color: beige;
 }
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 90%;
+  color: black;
+  text-align: center;
+  margin-bottom: 20px;
+  margin-left: 5%;
+  font-size: 1.7rem;
+  border-top: solid 2px black;
+  padding: 5px;
+  border-bottom: solid 2px black;
+  border-radius: 6px;
+}
