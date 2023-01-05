@@ -1,3 +1,7 @@
+import pokidata from './reservation/getdatapoki.js';
+
+const reseclose = document.getElementById('reseclose');
+
 const recivedata = async () => {
   try {
     const repone = await fetch(
@@ -15,6 +19,11 @@ const recivedata = async () => {
 };
 
 const url = 'https://pokeapi.co/api/v2/pokemon?limit=9&offset=0';
+// let id1 = '';
+const popupData = async (id) => {
+  // id1 = 'item'.concat(id);
+  await pokidata(id);
+};
 
 const display = (data) => {
   const nameArray = [];
@@ -27,27 +36,47 @@ const display = (data) => {
     fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
       .then((response) => response.json())
       .then((data) => {
-        document.querySelector('.list-items').innerHTML += `
-            <div class="poke-card">
+        const pokeList = document.querySelector('.list-items');
+        const pokecontainer = document.createElement('div');
+        pokecontainer.classList.add('poke-card');
+        const pokeImgDiv = document.createElement('div');
+        pokeImgDiv.innerHTML = `<img
+        src="${data.sprites.other['official-artwork'].front_default}"
+        alt="${pokemonName}" class="Poke-img"
+      />`;
+        const pokeInfoDiv = document.createElement('div');
+        pokeInfoDiv.classList.add('pokemonInfos');
+        const pokeNameIcon = document.createElement('h3');
+        pokeNameIcon.innerText = data.name;
+        const likesBtn = document.createElement('span');
+        likesBtn.innerText = '❤';
+        likesBtn.classList.add('heart');
+        const pokeWeight = document.createElement('p');
+        pokeWeight.innerText = `weight: ${data.weight}`;
+        const pokeCommentSec = document.createElement('div');
+        pokeCommentSec.classList.add('comment-section');
+        const BtnComment = document.createElement('button');
+        BtnComment.innerText = 'Comment';
+        BtnComment.classList.add('comment');
+        const BtnConserve = document.createElement('button');
+        BtnConserve.innerText = 'Reservation';
+        BtnConserve.classList.add('reservation');
+        pokeList.append(pokecontainer);
+        pokecontainer.append(pokeImgDiv, pokeInfoDiv, pokeWeight, pokeCommentSec);
+        pokeInfoDiv.append(pokeNameIcon, likesBtn);
+        pokeCommentSec.append(BtnComment, BtnConserve);
 
-            <div>
-              <img
-                src="${data.sprites.other['official-artwork'].front_default}"
-                alt="${pokemonName}" class="Poke-img"
-              />
-            </div>
-            <div class="pokemonInfos">
-              <h1>${data.name}</h1>
-              <Span class="heart">❤</Span>
-            </div>
-            <p>Weight: ${data.weight}</p>
-            <div class="comment-section">
-                <button class="comment">Comment</button>
-                <button class="reservation">Reservation</button>
-            </div>
+        BtnComment.addEventListener('click', () => {
+          popupData(data.id);
+        });
 
-            </div>
-              `;
+        likesBtn.addEventListener('click', () => {
+        });
+
+        BtnConserve.addEventListener('click', () => {
+          popupData(data.id);
+          document.getElementById('resevation').classList.remove('resevationhide');
+        });
       });
   });
 };
@@ -58,6 +87,8 @@ window.addEventListener('load', async () => {
   const data = await recivedata(url);
   display(data);
 });
+
+reseclose.addEventListener('click', () => document.getElementById('resevation').classList.add('resevationhide'));
 
 // const getData = async () => {
 //   const response = await fetch(
