@@ -88,7 +88,7 @@ window.addEventListener('load', async () => {
   display(data);
 });
 
-reseclose.addEventListener('click', () => document.getElementById('resevation').classList.add('resevationhide'))
+reseclose.addEventListener('click', () => document.getElementById('resevation').classList.add('resevationhide'));
 
 // const getData = async () => {
 //   const response = await fetch(
