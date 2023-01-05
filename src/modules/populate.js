@@ -1,20 +1,20 @@
 const recivedata = async () => {
   try {
-    const repone = await fetch(url);
+    const repone = await fetch(
+      'https://pokeapi.co/api/v2/pokemon?limit=9&offset=0',
+    );
 
     if (!repone.ok) {
       throw Error(repone.statusText);
     }
     const data = await repone.json();
-    console.log(data.results);
     return data.results;
   } catch (e) {
-    console.log(e);
     return e;
   }
 };
 
-const url = "https://pokeapi.co/api/v2/pokemon?limit=9&offset=0";
+const url = 'https://pokeapi.co/api/v2/pokemon?limit=9&offset=0';
 
 const display = (data) => {
   const nameArray = [];
@@ -27,22 +27,21 @@ const display = (data) => {
     fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data, "please give me something");
-        document.querySelector(".list-items").innerHTML += `
+        document.querySelector('.list-items').innerHTML += `
             <div class="poke-card">
 
             <div>
               <img
-                src="${data.sprites.other["official-artwork"].front_default}"
+                src="${data.sprites.other['official-artwork'].front_default}"
                 alt="${pokemonName}" class="Poke-img"
               />
             </div>
             <div class="pokemonInfos">
-              <h1>${data.name}</h3>
-              <p>Weight: ${data.weight}</p>
+              <h1>${data.name}</h1>
+              <Span class="heart">❤</Span>
             </div>
+            <p>Weight: ${data.weight}</p>
             <div class="comment-section">
-                <Span>❤</Span>
                 <button class="comment">Comment</button>
                 <button class="reservation">Reservation</button>
             </div>
@@ -55,7 +54,7 @@ const display = (data) => {
 
 // display(data);
 
-window.addEventListener("load", async () => {
+window.addEventListener('load', async () => {
   const data = await recivedata(url);
   display(data);
 });

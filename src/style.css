@@ -1,17 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Sevillana&display=swap');
 
 header {
-  background-color: black;
+  background-color: rgb(40, 123, 218);
   height: 4rem;
-  color: beige;
+  color: rgb(250, 250, 248);
 }
 
 ul {
   display: flex;
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   justify-content: center;
   align-items: center;
-  font-family: 'Sevillana', cursive;
+  font-family: Arial, Helvetica, sans-serif;
   height: 100%;
   gap: 30px;
   text-decoration: none;
@@ -28,24 +28,26 @@ footer {
   bottom: 0;
   width: 90%;
   color: rgb(255, 254, 254);
-  background-color: black;
+  background-color: rgb(40, 123, 218);
   text-align: center;
   margin-bottom: 20px;
   margin-left: 5%;
   font-size: 1.7rem;
-  border-top: solid 2px black;
+  border-top: solid 2px rgb(81, 122, 235);
   padding: 5px;
-  border-bottom: solid 2px black;
+  border-bottom: solid 2px rgb(85, 87, 236);
   border-radius: 6px;
 }
-.list-items{
-    margin-top: 2rem;
-    margin-bottom: 3rem;
-    display: grid;
-    grid-template-columns: repeat(3, 3fr);
-    justify-items: center;
+
+.list-items {
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  display: grid;
+  grid-template-columns: repeat(3, 3fr);
+  justify-items: center;
 }
-.lists{
+
+/* .lists{
     border: 3px solid black;
     margin-top: 2rem;
     height: 17rem;
@@ -60,12 +62,85 @@ h2{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
     color: black;
+} */
+
+.poke-card {
+  border: 5px solid rgb(65, 166, 206);
+  height: 23rem;
+  width: 23rem;
+  margin-top: 2rem;
 }
-.second{
-    
+
+.Poke-img {
+  height: 10rem;
+  width: 11rem;
+  margin-left: 2rem;
 }
-.last{
-   display: flex;
-   flex-direction: column;
-   gap: 1rem;
+
+.pokemonInfos {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+
+h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(4, 49, 109);
+  margin-left: 2rem;
+}
+
+.heart {
+  height: 2rem;
+  width: 2rem;
+  margin-top: 1.8rem;
+  color: rgb(62, 123, 141);
+  transition: color 1s ease;
+}
+
+.heart:hover {
+  color: rgb(231, 15, 15);
+}
+
+.comment-section {
+  margin-left: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+p {
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-left: 2rem;
+}
+
+.comment {
+  width: 5rem;
+  height: 1.7rem;
+  text-align: center;
+  background-color: rgb(31, 116, 228);
+  color: rgb(252, 252, 252);
+  border: 1px solid rgb(13, 73, 151);
+  transition: 2s ease color;
+}
+
+.comment:hover {
+  background-color: rgb(240, 52, 52);
+  border: brown;
+}
+
+.reservation {
+  width: 5.3rem;
+  height: 1.7rem;
+  text-align: center;
+  background-color: rgb(31, 116, 228);
+  color: rgb(252, 252, 252);
+  border: 1px solid rgb(13, 73, 151);
+  transition: 2s ease color;
+}
+
+.reservation:hover {
+  background-color: rgb(240, 52, 52);
+  border: brown;
 }
