@@ -1,5 +1,7 @@
 import pokidata from './reservation/getdatapoki.js';
 
+const reseclose = document.getElementById('reseclose');
+
 const recivedata = async () => {
   try {
     const repone = await fetch(
@@ -85,6 +87,8 @@ window.addEventListener('load', async () => {
   const data = await recivedata(url);
   display(data);
 });
+
+reseclose.addEventListener('click', () => document.getElementById('resevation').classList.add('resevationhide'))
 
 // const getData = async () => {
 //   const response = await fetch(

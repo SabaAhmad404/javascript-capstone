@@ -3,7 +3,6 @@ const Pokemondisplay = document.getElementById('Pokemon-display');
 const structure = (data) => {
   const imgurl = data.sprites.other.dream_world.front_default;
   Pokemondisplay.innerHTML = `
-  <h1>Hello</h1>
     <img src=${imgurl} alt="${data.name}">
 <div class="data">
 <div>
