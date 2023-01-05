@@ -1,3 +1,4 @@
-import "./style.css";
-import recivedata from "./modules/populate.js";
+import './style.css';
+import recivedata from './modules/populate.js';
+
 recivedata();
