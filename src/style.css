@@ -24,11 +24,11 @@ li :last-child {
 }
 
 footer {
-  position: fixed;
   left: 0;
   bottom: 0;
   width: 90%;
-  color: black;
+  color: rgb(255, 254, 254);
+  background-color: black;
   text-align: center;
   margin-bottom: 20px;
   margin-left: 5%;
@@ -37,4 +37,35 @@ footer {
   padding: 5px;
   border-bottom: solid 2px black;
   border-radius: 6px;
+}
+.list-items{
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    display: grid;
+    grid-template-columns: repeat(3, 3fr);
+    justify-items: center;
+}
+.lists{
+    border: 3px solid black;
+    margin-top: 2rem;
+    height: 17rem;
+    width: 20rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+h2{
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    color: black;
+}
+.second{
+    
+}
+.last{
+   display: flex;
+   flex-direction: column;
+   gap: 1rem;
 }
