@@ -1,3 +1,5 @@
+import pokidata from './reservation/getdatapoki.js';
+
 const recivedata = async () => {
   try {
     const repone = await fetch(
@@ -15,6 +17,11 @@ const recivedata = async () => {
 };
 
 const url = 'https://pokeapi.co/api/v2/pokemon?limit=9&offset=0';
+// let id1 = '';
+const popupData = async (id) => {
+  // id1 = 'item'.concat(id);
+  await pokidata(id);
+};
 
 const display = (data) => {
   const nameArray = [];

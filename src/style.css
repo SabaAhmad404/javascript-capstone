@@ -144,3 +144,106 @@ p {
   background-color: rgb(240, 52, 52);
   border: brown;
 }
+
+.resposition {
+  background-color: #ddddc7e6;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+.styleres {
+  background: bisque;
+  width: 87%;
+  height: 100vh;
+  overflow-y: scroll;
+  position: absolute;
+  left: 5rem;
+}
+
+label {
+  color: azure;
+  font-size: x-large;
+  margin: 11px 0;
+}
+
+.close {
+  width: 4rem;
+  display: flex;
+  align-self: end;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.name,
+.sdate,
+.edate {
+  width: 15rem;
+  height: 1.7rem;
+  font-size: 1.2rem;
+}
+
+.rsubmit {
+  width: 9rem;
+  margin-top: 12px;
+  font-size: 1.4rem;
+  background-color: #b0c4de8a;
+}
+
+.time {
+  list-style: none;
+  width: 100%;
+  height: 15rem;
+  gap: 12px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+
+.time li p {
+  font-size: 1.4rem;
+}
+
+.display-time {
+  color: #b0ded8;
+  width: 37rem;
+}
+
+.display-time h2 {
+  display: flex;
+  justify-content: center;
+  font-size: 2.8rem;
+  font-weight: 700;
+}
+
+.Pokidisplay img {
+  width: 100%;
+}
+
+.data {
+  display: flex;
+  gap: 4rem;
+  width: 100%;
+  justify-content: center;
+}
+
+.Pokidisplay h3 {
+  color: #485d5b;
+  font-size: 1.6rem;
+}
+
+.Pokidisplay h3 span {
+  font-weight: 900;
+  font-size: 2rem;
+  margin-right: 18px;
+}
+
+.resevationhide {
+  display: none;
+}
