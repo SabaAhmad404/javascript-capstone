@@ -1,8 +1,9 @@
 import pokidata from './reservation/getdatapoki.js';
 import postdata from './reservation/postdatainvo.js';
 import getpost from './reservation/getdatainvo.js';
-import getid from './postlikes.js';
-import postLikes from './postlikes';
+import getid from './likesget.js';
+import postLikes from './postlikes.js';
+import sendLikes from './likesget.js'
 
 import commentPopup from './commentPoke.js';
 // import { getDiffieHellman } from "crypto";
@@ -11,7 +12,7 @@ const reseclose = document.getElementById('reseclose');
 const submit = document.getElementById('submit');
 const subname = document.getElementById('name');
 const start = document.getElementById('sdate');
-const end = document.getElementById('edate');
+const end = document.getElementById('edate'); 
 
 const recivedata = async () => {
   try {
@@ -35,25 +36,21 @@ const popupData = async (id) => {
   id1 = 'item'.concat(id);
   await pokidata(id);
   await getpost(id1);
+  // await getid(id1);
 };
 
-const tragetlike = async () => {
-  console.log(id1);
-  
-};
+
 
 const display = (data) => {
   const nameArray = [];
   data.forEach((element) => {
     nameArray.push(element.name);
   });
-  // console.log(nameArray, "This is now what i want");
 
   nameArray.forEach((pokemonName) => {
     fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
       .then((response) => response.json())
-      .then((data) => {
-        console.log(data, 'what is this');
+      .then((data) =>  {
         const pokeList = document.querySelector('.list-items');
         const pokecontainer = document.createElement('div');
         pokecontainer.classList.add('poke-card');
@@ -67,7 +64,7 @@ const display = (data) => {
         const pokeNameIcon = document.createElement('h3');
         pokeNameIcon.innerText = data.name;
         const likesBtn = document.createElement('span');
-        likesBtn.innerText = '❤';
+        likesBtn.innerText = `❤ ${sendLikes()}`;
         likesBtn.classList.add('heart');
         const pokeWeight = document.createElement('p');
         pokeWeight.innerText = `weight: ${data.weight}`;
@@ -101,6 +98,8 @@ const display = (data) => {
         likesBtn.addEventListener('click', async () => {
           const id2 = 'item'.concat(data.id); 
           await postLikes(id2);
+          await getid(id2);
+          console.log( await sendLikes())
           console.log('done')
         });
 
