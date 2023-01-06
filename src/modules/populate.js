@@ -103,7 +103,8 @@ submit.addEventListener('click', async () => {
   await postdata({
     item_id: id1, username: namev, date_start: sdate, date_end: edate,
   });
-  await getpost();
+  console.log(id1)
+  await getpost(id1);
 });
 
 export { recivedata as default };
