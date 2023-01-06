@@ -246,17 +246,17 @@ form {
   display: none;
 }
 
-
 .passdatainvo {
   display: flex;
   width: 100%;
   align-items: center;
   margin-bottom: 3rem;
-  
+}
+
 .CommentPopupSection {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   background-color: bisque;
   gap: 20px;
