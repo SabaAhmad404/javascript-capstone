@@ -1,8 +1,14 @@
 import pokidata from './reservation/getdatapoki.js';
+import postdata from './reservation/postdatainvo.js';
+import getpost from './reservation/getdatainvo.js';
 
 import commentPopup from './commentPoke.js';
 
 const reseclose = document.getElementById('reseclose');
+const submit = document.getElementById('submit');
+const subname = document.getElementById('name');
+const start = document.getElementById('sdate');
+const end = document.getElementById('edate');
 
 const recivedata = async () => {
   try {
@@ -21,10 +27,11 @@ const recivedata = async () => {
 };
 
 const url = 'https://pokeapi.co/api/v2/pokemon?limit=9&offset=0';
-// let id1 = '';
+let id1 = '';
 const popupData = async (id) => {
-  // id1 = 'item'.concat(id);
+  id1 = 'item'.concat(id);
   await pokidata(id);
+  await getpost(id1);
 };
 
 const display = (data) => {
@@ -95,4 +102,14 @@ window.addEventListener('load', async () => {
 
 reseclose.addEventListener('click', () => document.getElementById('resevation').classList.add('resevationhide'));
 
+
+submit.addEventListener('click', async () => {
+  const namev = subname.value;
+  const sdate = start.value.toString();
+  const edate = end.value.toString();
+  await postdata({
+    item_id: id1, username: namev, date_start: sdate, date_end: edate,
+  });
+  await getpost(id1);
+});
 export { recivedata as default };
