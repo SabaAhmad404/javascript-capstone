@@ -1,6 +1,12 @@
 import pokidata from './reservation/getdatapoki.js';
+import postdata from './reservation/postdatainvo.js';
+import getpost from './reservation/getdatainvo.js';
 
 const reseclose = document.getElementById('reseclose');
+const submit = document.getElementById('submit');
+const subname = document.getElementById('name');
+const start = document.getElementById('sdate');
+const end = document.getElementById('edate');
 
 const recivedata = async () => {
   try {
@@ -19,9 +25,9 @@ const recivedata = async () => {
 };
 
 const url = 'https://pokeapi.co/api/v2/pokemon?limit=9&offset=0';
-// let id1 = '';
+let id1 = '';
 const popupData = async (id) => {
-  // id1 = 'item'.concat(id);
+  id1 = 'item'.concat(id);
   await pokidata(id);
 };
 
@@ -90,49 +96,14 @@ window.addEventListener('load', async () => {
 
 reseclose.addEventListener('click', () => document.getElementById('resevation').classList.add('resevationhide'));
 
-// const getData = async () => {
-//   const response = await fetch(
-//     "https://pokeapi.co/api/v2/pokemon?limit=9&offset=0"
-//   );
-//   const data = await response.json();
-//   console.log(data);
-//   const listItems = document.querySelector(".list-items");
-//   const displayData = (data) => {
-//     data.results.forEach((e) => {
-//       const card = document.createElement("div");
-//       card.classList.add("lists");
-//       listItems.append(card);
-//       const image = document.createElement("img");
-//       image.src = e.url;
-//       card.append(image);
-//       const cardDiv = document.createElement("div");
-//       cardDiv.classList.add("second");
-//       card.append(cardDiv);
-//       const heading = document.createElement("h2");
-//       heading.innerText = e.name;
-//       cardDiv.append(heading);
-//       // const heart = document.createElement("i");
-//       // heart.classList.add("fa-light");
-//       // heart.classList.add("fa-heart");
-//       // cardDiv.append(heart);
-//       const heart = document.createElement("span");
-//       heart.innerText = "❤";
-//       cardDiv.append(heart);
-//       const buttonDiv = document.createElement("div");
-//       buttonDiv.classList.add("last");
-//       cardDiv.append(buttonDiv);
-//       const paragraph = document.createElement("p");
-//       paragraph.classList.add("paras");
-//       paragraph.innerText = "5 likes";
-//       buttonDiv.append(paragraph);
-//       const buttonOne = document.createElement("button");
-//       buttonOne.innerText = "Comment";
-//       buttonDiv.append(buttonOne);
-//       const buttonTwo = document.createElement("button");
-//       buttonTwo.innerText = "Reservation";
-//       buttonDiv.append(buttonTwo);
-//     });
-//   };
-//   displayData(data);
-// };
+submit.addEventListener('click', async () => {
+  const namev = subname.value;
+  const sdate = start.value.toString();
+  const edate = end.value.toString();
+  await postdata({
+    item_id: id1, username: namev, date_start: sdate, date_end: edate,
+  });
+  await getpost();
+});
+
 export { recivedata as default };
