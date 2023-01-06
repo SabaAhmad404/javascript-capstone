@@ -165,7 +165,7 @@ p {
 }
 
 label {
-  color: azure;
+  color: #0f5a5aa3;
   font-size: x-large;
   margin: 11px 0;
 }
@@ -198,7 +198,7 @@ form {
 
 .time {
   list-style: none;
-  width: 100%;
+  width: 73%;
   height: 15rem;
   gap: 12px;
   display: flex;
@@ -211,8 +211,8 @@ form {
 }
 
 .display-time {
-  color: #b0ded8;
-  width: 37rem;
+  color: #485d5b;
+  width: 100%;
 }
 
 .display-time h2 {
@@ -246,4 +246,11 @@ form {
 
 .resevationhide {
   display: none;
+}
+
+.passdatainvo {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  margin-bottom: 3rem;
 }

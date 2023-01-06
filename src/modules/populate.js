@@ -29,6 +29,7 @@ let id1 = '';
 const popupData = async (id) => {
   id1 = 'item'.concat(id);
   await pokidata(id);
+  await getpost(id1);
 };
 
 const display = (data) => {
@@ -103,7 +104,6 @@ submit.addEventListener('click', async () => {
   await postdata({
     item_id: id1, username: namev, date_start: sdate, date_end: edate,
   });
-  console.log(id1)
   await getpost(id1);
 });
 
