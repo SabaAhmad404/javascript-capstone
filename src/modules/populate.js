@@ -2,9 +2,10 @@ import pokidata from "./reservation/getdatapoki.js";
 import postdata from "./reservation/postdatainvo.js";
 import getpost from "./reservation/getdatainvo.js";
 import getid from "./postlikes.js";
+import postLikes from "./postlikes";
 
 import commentPopup from "./commentPoke.js";
-import { getDiffieHellman } from "crypto";
+// import { getDiffieHellman } from "crypto";
 
 const reseclose = document.getElementById("reseclose");
 const submit = document.getElementById("submit");
@@ -47,6 +48,7 @@ const display = (data) => {
     fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
       .then((response) => response.json())
       .then((data) => {
+        console.log(data, "what is this")
         const pokeList = document.querySelector(".list-items");
         const pokecontainer = document.createElement("div");
         pokecontainer.classList.add("poke-card");
@@ -92,6 +94,7 @@ const display = (data) => {
         });
 
         likesBtn.addEventListener("click", () => {
+          postLikes({ item_id: data.id })
           getid(data.id);
         });
 
