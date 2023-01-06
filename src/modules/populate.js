@@ -107,6 +107,7 @@ const display = (data) => {
           const id2 = 'item'.concat(data.id);
           await postLikes(id2);
           await getLikes(id2);
+          likesBtn.style.color = "red";
         }, {once: true});
 
         BtnConserve.addEventListener('click', () => {
