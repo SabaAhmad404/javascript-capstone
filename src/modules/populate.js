@@ -1,9 +1,9 @@
 import pokidata from './reservation/getdatapoki.js';
 import postdata from './reservation/postdatainvo.js';
 import getpost from './reservation/getdatainvo.js';
-import getid from './likesget.js';
+// import getid from './likesget.js';
 import postLikes from './postlikes.js';
-import sendLikes from './likesget.js'
+// import sendLikes from './likesget.js';
 
 import commentPopup from './commentPoke.js';
 // import { getDiffieHellman } from "crypto";
@@ -12,7 +12,7 @@ const reseclose = document.getElementById('reseclose');
 const submit = document.getElementById('submit');
 const subname = document.getElementById('name');
 const start = document.getElementById('sdate');
-const end = document.getElementById('edate'); 
+const end = document.getElementById('edate');
 
 const recivedata = async () => {
   try {
@@ -39,8 +39,6 @@ const popupData = async (id) => {
   // await getid(id1);
 };
 
-
-
 const display = (data) => {
   const nameArray = [];
   data.forEach((element) => {
@@ -50,7 +48,7 @@ const display = (data) => {
   nameArray.forEach((pokemonName) => {
     fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
       .then((response) => response.json())
-      .then((data) =>  {
+      .then((data) => {
         const pokeList = document.querySelector('.list-items');
         const pokecontainer = document.createElement('div');
         pokecontainer.classList.add('poke-card');
@@ -64,8 +62,18 @@ const display = (data) => {
         const pokeNameIcon = document.createElement('h3');
         pokeNameIcon.innerText = data.name;
         const likesBtn = document.createElement('span');
-        likesBtn.innerText = `❤ ${sendLikes()}`;
+        const getLikes = async (id2) => {
+          const url = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/x1JnCaUrbuCma7kL4K33/likes?item_id=${id2}`;
+          const response = await fetch(url);
+          const data = await response.json();
+          data.forEach((element) => {
+            if (element.item_id === id2) {
+              likesBtn.innerHTML = `<span> ❤${element.likes}</span>`;
+            }
+          });
+        };
         likesBtn.classList.add('heart');
+        likesBtn.textContent = '❤';
         const pokeWeight = document.createElement('p');
         pokeWeight.innerText = `weight: ${data.weight}`;
         const pokeCommentSec = document.createElement('div');
@@ -96,12 +104,10 @@ const display = (data) => {
         });
 
         likesBtn.addEventListener('click', async () => {
-          const id2 = 'item'.concat(data.id); 
+          const id2 = 'item'.concat(data.id);
           await postLikes(id2);
-          await getid(id2);
-          console.log( await sendLikes())
-          console.log('done')
-        });
+          await getLikes(id2);
+        }, {once: true});
 
         BtnConserve.addEventListener('click', () => {
           popupData(data.id);
