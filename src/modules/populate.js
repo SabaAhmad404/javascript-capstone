@@ -2,6 +2,8 @@ import pokidata from './reservation/getdatapoki.js';
 import postdata from './reservation/postdatainvo.js';
 import getpost from './reservation/getdatainvo.js';
 
+import commentPopup from './commentPoke.js';
+
 const reseclose = document.getElementById('reseclose');
 const submit = document.getElementById('submit');
 const subname = document.getElementById('name');
@@ -74,7 +76,10 @@ const display = (data) => {
         pokeCommentSec.append(BtnComment, BtnConserve);
 
         BtnComment.addEventListener('click', () => {
-          popupData(data.id);
+          commentPopup(data);
+          document.querySelector('.CommentPopupSection').classList.remove('hidden');
+          document.querySelector('.overlay').classList.remove('hidden');
+          // overlay.classList.remove('hidden');
         });
 
         likesBtn.addEventListener('click', () => {
@@ -97,6 +102,7 @@ window.addEventListener('load', async () => {
 
 reseclose.addEventListener('click', () => document.getElementById('resevation').classList.add('resevationhide'));
 
+
 submit.addEventListener('click', async () => {
   const namev = subname.value;
   const sdate = start.value.toString();
@@ -106,5 +112,4 @@ submit.addEventListener('click', async () => {
   });
   await getpost(id1);
 });
-
 export { recivedata as default };
