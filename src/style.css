@@ -1,18 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Sevillana&display=swap');
 
-body {
-  padding: 0;
-  margin: 0;
-  overflow-x: hidden;
-}
-
 header {
   background-color: rgb(40, 123, 218);
   height: 4rem;
   color: rgb(250, 250, 248);
 }
 
-ul {
+.nav-menu {
   display: flex;
   font-size: 1.5rem;
   justify-content: center;
@@ -24,7 +18,7 @@ ul {
   list-style: none;
 }
 
-li :last-child {
+.nav-menu li :last-child {
   text-decoration: none;
   color: beige;
 }
@@ -53,14 +47,22 @@ footer {
   justify-items: center;
 }
 
-#reseclose {
-  font-size: 70px;
-  font-weight: 700;
+/* .lists{
+    border: 3px solid black;
+    margin-top: 2rem;
+    height: 17rem;
+    width: 20rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
-
-#reseclose:hover {
-  cursor: pointer;
-}
+h2{
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    color: black;
+} */
 
 .poke-card {
   border: 5px solid rgb(65, 166, 206);
@@ -187,7 +189,8 @@ form {
   font-size: 1.2rem;
 }
 
-.rsubmit {
+.rsubmit,
+.Csubmit {
   width: 9rem;
   margin-top: 12px;
   font-size: 1.4rem;
@@ -246,7 +249,6 @@ form {
   display: none;
 }
 
-
 .passdatainvo {
   display: flex;
   width: 100%;
@@ -257,7 +259,6 @@ form {
 .CommentPopupSection {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   background-color: bisque;
   gap: 20px;
@@ -302,6 +303,36 @@ form {
   background-color: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(3px);
   z-index: 5;
+}
+
+.mComment {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-left: 5%;
+  margin-top: 20px;
+  padding: 5px;
+  margin-bottom: 20px;
+  height: auto;
+  width: 500px;
+  text-align: start;
+  font-size: 20px;
+}
+
+#reseclose {
+  font-size: 40px;
+}
+
+#reseclose:hover {
+  cursor: pointer;
+}
+
+.coment-list h2 {
+  text-align: center;
+}
+
+.newComentList {
+  list-style: none;
 }
 
 .hidden {

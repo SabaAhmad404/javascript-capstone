@@ -1,14 +1,21 @@
 import pokidata from './reservation/getdatapoki.js';
 import postdata from './reservation/postdatainvo.js';
 import getpost from './reservation/getdatainvo.js';
+// import getid from './likesget.js';
+import postLikes from './postlikes.js';
+// import sendLikes from './likesget.js';
 
-import commentPopup from './commentPoke.js';
+import getData from './comments/getData.js';
+import commentPopup from './comments/commentPoke.js';
+import show from './reservation/showinvo.js';
+import itemCounter from './reservation/counter.js';
 
 const reseclose = document.getElementById('reseclose');
 const submit = document.getElementById('submit');
 const subname = document.getElementById('name');
 const start = document.getElementById('sdate');
 const end = document.getElementById('edate');
+const Pokenumber = document.querySelector('.show-poke-number');
 
 const recivedata = async () => {
   try {
@@ -32,6 +39,8 @@ const popupData = async (id) => {
   id1 = 'item'.concat(id);
   await pokidata(id);
   await getpost(id1);
+  // await getid(id1);
+  show(await getpost(id1));
 };
 
 const display = (data) => {
@@ -39,7 +48,6 @@ const display = (data) => {
   data.forEach((element) => {
     nameArray.push(element.name);
   });
-  // console.log(nameArray, "This is now what i want");
 
   nameArray.forEach((pokemonName) => {
     fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
@@ -58,8 +66,18 @@ const display = (data) => {
         const pokeNameIcon = document.createElement('h3');
         pokeNameIcon.innerText = data.name;
         const likesBtn = document.createElement('span');
-        likesBtn.innerText = '❤';
+        const getLikes = async (id2) => {
+          const url = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/x1JnCaUrbuCma7kL4K33/likes?item_id=${id2}`;
+          const response = await fetch(url);
+          const data = await response.json();
+          data.forEach((element) => {
+            if (element.item_id === id2) {
+              likesBtn.innerHTML = `<span> ❤${element.likes}</span>`;
+            }
+          });
+        };
         likesBtn.classList.add('heart');
+        likesBtn.textContent = '❤';
         const pokeWeight = document.createElement('p');
         pokeWeight.innerText = `weight: ${data.weight}`;
         const pokeCommentSec = document.createElement('div');
@@ -71,23 +89,48 @@ const display = (data) => {
         BtnConserve.innerText = 'Reservation';
         BtnConserve.classList.add('reservation');
         pokeList.append(pokecontainer);
-        pokecontainer.append(pokeImgDiv, pokeInfoDiv, pokeWeight, pokeCommentSec);
+        pokecontainer.append(
+          pokeImgDiv,
+          pokeInfoDiv,
+          pokeWeight,
+          pokeCommentSec,
+        );
         pokeInfoDiv.append(pokeNameIcon, likesBtn);
         pokeCommentSec.append(BtnComment, BtnConserve);
+        itemCounter(Pokenumber, pokeList);
 
         BtnComment.addEventListener('click', () => {
           commentPopup(data);
-          document.querySelector('.CommentPopupSection').classList.remove('hidden');
+
+          document
+            .querySelector('.CommentPopupSection')
+            .classList.remove('hidden');
+
+          getData(data.id);
+          document
+            .querySelector('.CommentPopupSection')
+            .classList.remove('hidden');
+
           document.querySelector('.overlay').classList.remove('hidden');
-          // overlay.classList.remove('hidden');
+          popupData(data.id);
         });
 
-        likesBtn.addEventListener('click', () => {
-        });
+        likesBtn.addEventListener(
+          'click',
+          async () => {
+            const id2 = 'item'.concat(data.id);
+            await postLikes(id2);
+            await getLikes(id2);
+            likesBtn.style.color = 'red';
+          },
+          { once: true },
+        );
 
         BtnConserve.addEventListener('click', () => {
           popupData(data.id);
-          document.getElementById('resevation').classList.remove('resevationhide');
+          document
+            .getElementById('resevation')
+            .classList.remove('resevationhide');
         });
       });
   });
@@ -102,14 +145,17 @@ window.addEventListener('load', async () => {
 
 reseclose.addEventListener('click', () => document.getElementById('resevation').classList.add('resevationhide'));
 
-
 submit.addEventListener('click', async () => {
   const namev = subname.value;
   const sdate = start.value.toString();
   const edate = end.value.toString();
   await postdata({
-    item_id: id1, username: namev, date_start: sdate, date_end: edate,
+    item_id: id1,
+    username: namev,
+    date_start: sdate,
+    date_end: edate,
   });
-  await getpost(id1);
+  show(await getpost(id1));
 });
+
 export { recivedata as default };

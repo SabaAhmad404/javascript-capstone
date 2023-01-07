@@ -23,7 +23,6 @@ const pokidata = async (id) => {
       throw Error(get.statusText);
     }
     const reposance = await get.json();
-    // console.log(reposance);
     structure(reposance);
     return reposance;
   } catch (e) {
