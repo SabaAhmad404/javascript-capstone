@@ -14,7 +14,8 @@
 - [📗 Table of Contents](#-table-of-contents)
 - [📖 Todo List Project](#-Javascript-project)
   - [🛠 Built With ](#-built-with-)
-  - [🚀 Live Demo ](#-live-demo-)
+
+  - [🚀 Live Demo video ](https://youtu.be/sgqM34DgA4Q)
   - [💻 Getting Started ](#-getting-started-)
     - [Prerequisites](#prerequisites)
     - [Setup](#setup)
@@ -44,7 +45,10 @@ The JavaScript capstone project  is about building your own web application base
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-coming soon
+
+ - [Live Demo video](https://youtu.be/sgqM34DgA4Q)
+ - [Live Demo project](https://sabaahmad404.github.io/javascript-capstone/dist/)
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -95,11 +99,20 @@ Clone this repository to your desired folder:
 <!-- Author -->
 
 👤 **Authors**
+ 
+ - Student A
+- GitHub: [@SabaAhmad786](https://github.com/SabaAhmad786)
+- LinkedIn: [@saba ahmad](https://www.linkedin.com/in/saba-ahmad-97b938244/)
+ 
+ - Student B
+   
+- GitHub: [@george827](https://github.com/SabaAhmad786)
+- LinkedIn: [@George Kinyanjui](https://www.linkedin.com/in/george-kinyanjui-030468149/)
 
+- Student C
 
-- Saba Ahmad : [@SabaAhmad404](https://github.com/SabaAhmad786)
-- Hassaan Baig : [@Hassaanjbaig-code](https://github.com/Hassaanjbaig-code)
-- George kinyanjui : [@george827](https://github.com/george827)
+- GitHub: [@@Hassaanjbaig-code](https://github.com/Hassaanjbaig-code)
+- LinkedIn: [@Hassaan Baig](https://www.linkedin.com/in/hassaan-baig-855788241/)
 
 
 
