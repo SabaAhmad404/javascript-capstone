@@ -57,7 +57,7 @@ coming soon
 
 - On the terminal run this command git clone ``
 
-- Go to the repository folder using command prompt cd `Leaderboard-apis`
+- Go to the repository folder using command prompt cd `javascript-capstone`
 
 - Install the dev dependencies for linters run npm install.
 - setup Webpack
