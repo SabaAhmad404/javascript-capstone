@@ -5,11 +5,9 @@ import getpost from './reservation/getdatainvo.js';
 import postLikes from './postlikes.js';
 // import sendLikes from './likesget.js';
 
-import commentPopup from './commentPoke.js';
 import getData from './comments/getData.js';
 import commentPopup from './comments/commentPoke.js';
 import show from './reservation/showinvo.js';
-
 
 const reseclose = document.getElementById('reseclose');
 const submit = document.getElementById('submit');
@@ -106,18 +104,24 @@ const display = (data) => {
             .classList.remove('hidden');
 
           getData(data.id);
-          document.querySelector('.CommentPopupSection').classList.remove('hidden');
+          document
+            .querySelector('.CommentPopupSection')
+            .classList.remove('hidden');
 
           document.querySelector('.overlay').classList.remove('hidden');
           popupData(data.id);
         });
 
-        likesBtn.addEventListener('click', async () => {
-          const id2 = 'item'.concat(data.id);
-          await postLikes(id2);
-          await getLikes(id2);
-          likesBtn.style.color = "red";
-        }, {once: true});
+        likesBtn.addEventListener(
+          'click',
+          async () => {
+            const id2 = 'item'.concat(data.id);
+            await postLikes(id2);
+            await getLikes(id2);
+            likesBtn.style.color = 'red';
+          },
+          { once: true },
+        );
 
         BtnConserve.addEventListener('click', () => {
           popupData(data.id);
