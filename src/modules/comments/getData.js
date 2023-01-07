@@ -1,9 +1,12 @@
+import itemCounter from '../reservation/counter.js';
+
 const getData = (data) => {
   const id = 'item'.concat(data);
 
   const userName = document.getElementById('User-name');
   const userComment = document.getElementById('User-comment');
   const submitComment = document.querySelector('.Csubmit');
+  const CommentCount = document.querySelector('.coment-count');
 
   const Mycomment = document.querySelector('.mComment');
 
@@ -15,6 +18,7 @@ const getData = (data) => {
         li.classList.add('newComentList');
         Mycomment.append(li);
         li.innerHTML += `${comment.creation_date} ${comment.username} : ${comment.comment}`;
+        itemCounter(CommentCount, Mycomment);
       });
     } else {
       Mycomment.innerHTML = '<span class="data">No data about this pokemon</span>';
@@ -29,20 +33,22 @@ const getData = (data) => {
   };
 
   submitComment.addEventListener('click', async () => {
-    await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/QMi7IVnLIBx9LsDFnmic/comments',
-      {
-        method: 'POST',
-        body: JSON.stringify({
-          item_id: id,
-          username: userName.value,
-          comment: userComment.value,
+    if (userName.value !== '' && userComment.value !== '') {
+      await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/QMi7IVnLIBx9LsDFnmic/comments',
+        {
+          method: 'POST',
+          body: JSON.stringify({
+            item_id: id,
+            username: userName.value,
+            comment: userComment.value,
 
-        }),
-        headers: {
-          'Content-Type': 'application/json;charset=UTF-8',
-        },
-      });
-    getpost();
+          }),
+          headers: {
+            'Content-Type': 'application/json;charset=UTF-8',
+          },
+        });
+      getpost();
+    }
   });
 };
 

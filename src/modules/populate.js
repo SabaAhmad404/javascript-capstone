@@ -8,12 +8,14 @@ import postLikes from './postlikes.js';
 import getData from './comments/getData.js';
 import commentPopup from './comments/commentPoke.js';
 import show from './reservation/showinvo.js';
+import itemCounter from './reservation/counter.js';
 
 const reseclose = document.getElementById('reseclose');
 const submit = document.getElementById('submit');
 const subname = document.getElementById('name');
 const start = document.getElementById('sdate');
 const end = document.getElementById('edate');
+const Pokenumber = document.querySelector('.show-poke-number');
 
 const recivedata = async () => {
   try {
@@ -95,6 +97,7 @@ const display = (data) => {
         );
         pokeInfoDiv.append(pokeNameIcon, likesBtn);
         pokeCommentSec.append(BtnComment, BtnConserve);
+        itemCounter(Pokenumber, pokeList);
 
         BtnComment.addEventListener('click', () => {
           commentPopup(data);

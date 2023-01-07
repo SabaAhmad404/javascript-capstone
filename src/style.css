@@ -319,6 +319,14 @@ form {
   font-size: 20px;
 }
 
+#reseclose {
+  font-size: 40px;
+}
+
+#reseclose:hover {
+  cursor: pointer;
+}
+
 .coment-list h2 {
   text-align: center;
 }
