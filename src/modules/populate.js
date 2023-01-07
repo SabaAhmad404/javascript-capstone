@@ -1,14 +1,11 @@
 import pokidata from './reservation/getdatapoki.js';
 import postdata from './reservation/postdatainvo.js';
 import getpost from './reservation/getdatainvo.js';
-// import getid from './likesget.js';
 import postLikes from './postlikes.js';
-// import sendLikes from './likesget.js';
-
 import getData from './comments/getData.js';
 import commentPopup from './comments/commentPoke.js';
 import show from './reservation/showinvo.js';
-import itemCounter from './reservation/counter.js';
+import itemCounter from './likesCounter.js';
 
 const reseclose = document.getElementById('reseclose');
 const submit = document.getElementById('submit');
@@ -54,7 +51,7 @@ const display = (data) => {
       .then((response) => response.json())
       .then((data) => {
         const pokeList = document.querySelector('.list-items');
-        const pokecontainer = document.createElement('div');
+        const pokecontainer = document.createElement('li');
         pokecontainer.classList.add('poke-card');
         const pokeImgDiv = document.createElement('div');
         pokeImgDiv.innerHTML = `<img
@@ -123,7 +120,6 @@ const display = (data) => {
             await getLikes(id2);
             likesBtn.style.color = 'red';
           },
-          { once: true },
         );
 
         BtnConserve.addEventListener('click', () => {
@@ -135,8 +131,6 @@ const display = (data) => {
       });
   });
 };
-
-// display(data);
 
 window.addEventListener('load', async () => {
   const data = await recivedata(url);

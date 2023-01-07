@@ -1,8 +1,3 @@
-// const listItems = document.querySelector(".list-items");
-// const like = document.createElement("span");
-// like.classList.add("heart");
-// like.innerText = "❤";
-// listItems.append(like);
 const postLikes = async (id) => {
   const url = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/x1JnCaUrbuCma7kL4K33/likes';
 

@@ -47,22 +47,9 @@ footer {
   justify-items: center;
 }
 
-/* .lists{
-    border: 3px solid black;
-    margin-top: 2rem;
-    height: 17rem;
-    width: 20rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.list-items li {
+  list-style: none;
 }
-h2{
-    font-weight: 600;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
-    color: black;
-} */
 
 .poke-card {
   border: 5px solid rgb(65, 166, 206);
@@ -195,6 +182,7 @@ form {
   margin-top: 12px;
   font-size: 1.4rem;
   background-color: #b0c4de8a;
+  margin-bottom: 20px;
 }
 
 .time {
@@ -205,6 +193,8 @@ form {
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
+  overflow-x: hidden;
+  margin-left: 12%;
 }
 
 .time li p {
@@ -223,15 +213,27 @@ form {
   font-weight: 700;
 }
 
-.Pokidisplay img {
+.Pokidisplay {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
   width: 100%;
+}
+
+.Pokidisplay img {
+  width: 600px;
+  margin-left: 10%;
 }
 
 .data {
   display: flex;
-  gap: 4rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+  gap: 1rem;
   width: 100%;
   justify-content: center;
+  list-style: none;
 }
 
 .Pokidisplay h3 {
@@ -317,10 +319,11 @@ form {
   margin-top: 20px;
   padding: 5px;
   margin-bottom: 20px;
-  height: auto;
+  height: 20rem;
   width: 500px;
   text-align: start;
   font-size: 20px;
+  overflow-y: scroll;
 }
 
 #reseclose {

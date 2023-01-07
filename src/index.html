@@ -28,8 +28,8 @@
         <li><a href="https://pokeapi.co/">Api-Link</a></li>
       </ul>
     </header>
-    <div class="list-items">
-    </div>
+    <ul class="list-items">
+    </ul>
     <section id="resevation" class="resevationhide resposition">
       <div class="styleres">
         <p id="reseclose">&times;</p>
@@ -42,7 +42,7 @@
       </div>
         <form class="passdatainvo">
           <label>Your name</label>
-          <input type="text" placeholder="Your name" name="Your name" id="name" class="name">
+          <input type="text" placeholder="Your name" name="Your name" id="name" class="name" maxlength="20">
           <label>Start date</label>
           <input type="date" placeholder="Start date" name="Start date" id="sdate" class="sdate">
           <label>End date</label>
@@ -71,9 +71,9 @@
       <section class="coment-form-section">
         <form >
             <label>Your name</label>
-            <input type="text" placeholder="Your name" id="User-name" class="name" required>
+            <input type="text" placeholder="Your name" id="User-name" class="name" required maxlength="20">
             <label>Your comment</label>
-            <textarea  id="User-comment" cols="30" rows="10" required> </textarea>
+            <textarea  id="User-comment" cols="30" rows="10" required maxlength="40"> </textarea>
             <input type="button" class="Csubmit" id="btnComment" value="commet">
         </form>
     </section>

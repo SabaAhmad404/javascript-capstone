@@ -1,4 +1,4 @@
-import itemCounter from '../reservation/counter.js';
+import itemCounter from './commentsCounter.js';
 
 const getData = (data) => {
   const id = 'item'.concat(data);
@@ -31,7 +31,7 @@ const getData = (data) => {
     show(convert);
     return convert;
   };
-
+  getpost();
   submitComment.addEventListener('click', async () => {
     if (userName.value !== '' && userComment.value !== '') {
       await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/QMi7IVnLIBx9LsDFnmic/comments',
