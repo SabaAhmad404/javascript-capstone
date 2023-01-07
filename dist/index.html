@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wbpack Exercise</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sevillana&display=swap"
+      rel="stylesheet"
+    />
+  <script defer src="main.js"></script></head>
+  <body>
+    <header>
+      <ul class="nav-menu">
+        <li >Home <span class="show-poke-number"></span></li>
+        <li>Favorite</li>
+        <li><a href="https://pokeapi.co/">Api-Link</a></li>
+      </ul>
+    </header>
+    <ul class="list-items">
+    </ul>
+    <section id="resevation" class="resevationhide resposition">
+      <div class="styleres">
+        <p id="reseclose">&times;</p>
+        <div id="Pokemon-display" class="Pokidisplay">   
+        </div>
+        <div   class="display-time">
+          <h2>Reservation ( <span id="count_reservation">0</span> )</h2>
+          <ul class="time" id="time">
+          </ul>
+      </div>
+        <form class="passdatainvo">
+          <label>Your name</label>
+          <input type="text" placeholder="Your name" name="Your name" id="name" class="name" maxlength="20">
+          <label>Start date</label>
+          <input type="date" placeholder="Start date" name="Start date" id="sdate" class="sdate">
+          <label>End date</label>
+          <input type="date" placeholder="Start date" name="End date" id="edate" class="edate">
+          <input type="button" class="rsubmit" id="submit" id="submit" value="Reserve">
+      </form>
+  </div>
+    </section>
+
+    
+    <!-- comment section -->
+    
+    <section class="CommentPopupSection hidden">
+      <button class="close-coments"> &times;</button>
+      <div class="pComments">
+        <!-- dynamic coments here -->
+
+      </div>
+
+    <section class="coment-list">
+        <h2> Comments <sub class="coment-count"></sub></h2>
+        <ul class="Comment-dispaly mComment" >
+            
+        </ul>
+    </section>
+      <section class="coment-form-section">
+        <form >
+            <label>Your name</label>
+            <input type="text" placeholder="Your name" id="User-name" class="name" required maxlength="20">
+            <label>Your comment</label>
+            <textarea  id="User-comment" cols="30" rows="10" required maxlength="40"> </textarea>
+            <input type="button" class="Csubmit" id="btnComment" value="commet">
+        </form>
+    </section>
+      
+    </section>
+    <div class="overlay hidden"></div>
+    <footer>Created by George, saba and hassaan under cc license</footer>
+  </body>
+  <script src="index.js"></script>
+</html>
