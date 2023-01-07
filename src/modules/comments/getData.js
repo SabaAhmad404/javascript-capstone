@@ -5,31 +5,11 @@ const getData = (data) => {
   const userName = document.getElementById('User-name');
   const userComment = document.getElementById('User-comment');
   const submitComment = document.querySelector('.Csubmit');
-  // const Pokemondisplay = document.getElementById('Pokemon-display');
+ 
   const Mycomment = document.querySelector('.mComment');
-  // const PopupComment = document.querySelector('.popup-comment');
 
-  // submitComment.addEventListener('click', async () => {
-  //     // console.log("hit me");
-  //     // e.preventDefault();
-  //     await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/Ug2YOBzfwDqlGqwReQpz/comments', {
-  //         method: 'POST',
-  //         body: JSON.stringify({
-  //             "item_id": id,
-  //             "username": userName.value,
-  //             "comment": userComment.value
-
-  //         }),
-  //         headers: {
-  //             'Content-Type': 'application/json;charset=UTF-8',
-  //         },
-  //     });
-  //     document.forms[0].reset();
-  //     populatelist();
-
-  // });
   submitComment.addEventListener('click', async () => {
-    await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/3UwTaV5sdSHgEOmKuvSR/comments',
+    await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/QMi7IVnLIBx9LsDFnmic/comments',
       {
         method: 'POST',
         body: JSON.stringify({
@@ -46,7 +26,7 @@ const getData = (data) => {
   });
 
   const getpost = async () => {
-    const response = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/3UwTaV5sdSHgEOmKuvSR/comments?item_id='.concat(id));
+    const response = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/QMi7IVnLIBx9LsDFnmic/comments?item_id='.concat(id));
     const convert = await response.json();
     show(convert);
     return convert;
@@ -56,33 +36,16 @@ const getData = (data) => {
     if (data.length > 0) {
       Mycomment.innerHTML = '';
       data.forEach((comment) => {
-        Mycomment.innerHTML += `
-                    <span class="date">${comment.username} by </span>  ${comment.creation_date} : ${comment.comment} <br>`;
+        const li = document.createElement('li');
+        li.classList.add("newComentList")
+        Mycomment.append(li);
+        li.innerHTML += `${comment.creation_date} ${comment.username} : ${comment.comment}`;
       });
     } else {
       Mycomment.innerHTML = '<span class="data">No data about this pokemon</span>';
     }
   };
 
-  // /apps/abc234/comments?item_id=item1
-  //  Ug2YOBzfwDqlGqwReQpz id
-
-  const populatelist = async () => {
-    const url = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/Ug2YOBzfwDqlGqwReQpz/comments?item_id='.concat(id);
-    const response = await fetch(url);
-    await response.json().then((json) => {
-      json.forEach((comment) => {
-        console.log(comment);
-        const luEl = document.createElement('li');
-        luEl.classList.add('list-of-coments');
-        Mycomment.append(luEl);
-        luEl.innerHTML = `${comment.creation_date}  : ${comment.username} : ${comment.comment}`;
-      });
-      // const CountCom = document.querySelector('.coment-count');
-    });
-  };
 };
 
 export default getData;
-
-// export default postdata;
