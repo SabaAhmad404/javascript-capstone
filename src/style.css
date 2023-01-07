@@ -1,11 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Sevillana&display=swap');
 
-body {
-  padding: 0;
-  margin: 0;
-  overflow-x: hidden;
-}
-
 header {
   background-color: rgb(40, 123, 218);
   height: 4rem;
@@ -53,14 +47,22 @@ footer {
   justify-items: center;
 }
 
-#reseclose {
-  font-size: 70px;
-  font-weight: 700;
+/* .lists{
+    border: 3px solid black;
+    margin-top: 2rem;
+    height: 17rem;
+    width: 20rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
-
-#reseclose:hover {
-  cursor: pointer;
-}
+h2{
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    color: black;
+} */
 
 .poke-card {
   border: 5px solid rgb(65, 166, 206);
