@@ -14,7 +14,7 @@
 - [📗 Table of Contents](#-table-of-contents)
 - [📖 Todo List Project](#-Javascript-project)
   - [🛠 Built With ](#-built-with-)
-  - [🚀 Live Demo ](#-live-demo-)
+  - [🚀 Live Demo video ](https://youtu.be/sgqM34DgA4Q)
   - [💻 Getting Started ](#-getting-started-)
     - [Prerequisites](#prerequisites)
     - [Setup](#setup)
@@ -44,7 +44,8 @@ The JavaScript capstone project  is about building your own web application base
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-coming soon
+ - [Live Demo video](https://youtu.be/sgqM34DgA4Q)
+  - [Live Demo of project](https://sabaahmad404.github.io/javascript-capstone/dist)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
