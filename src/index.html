@@ -22,7 +22,7 @@
   </head>
   <body>
     <header>
-      <ul>
+      <ul class="nav-menu">
         <li>Home</li>
         <li>Favorite</li>
         <li><a href="https://pokeapi.co/">Api-Link</a></li>
@@ -31,14 +31,8 @@
     <div class="list-items"></div>
     <section id="resevation" class="resevationhide resposition">
       <div class="styleres">
-
         <img src="./cancel.png" alt="Close Reservation" id="reseclose">
         <div id="Pokemon-display" class="Pokidisplay">   
-
-        <p id="reseclose">&times;</p>
-        <!-- <img src="./cancel.png" alt="Close Reservation" > -->
-        <div id="Pokemon-display" class="Pokidisplay">
-            
         </div>
         <div   class="display-time">
           <h2>Reservation</h2>
@@ -56,7 +50,9 @@
       </form>
   </div>
     </section>
+
     
+    <!-- comment section -->
     
     <section class="CommentPopupSection hidden">
       <button class="close-coments"> &times;</button>
@@ -64,6 +60,22 @@
         <!-- dynamic coments here -->
 
       </div>
+
+    <section class="coment-list">
+        <h2> Comments <sub class="coment-count"></sub></h2>
+        <ul class="Comment-dispaly mComment" >
+            
+        </ul>
+    </section>
+      <section class="coment-form-section">
+        <form >
+            <label>Your name</label>
+            <input type="text" placeholder="Your name" id="User-name" class="name" required>
+            <label>Your comment</label>
+            <textarea  id="User-comment" cols="30" rows="10" required> </textarea>
+            <input type="button" class="Csubmit" id="btnComment" value="commet">
+        </form>
+    </section>
       
     </section>
     <div class="overlay hidden"></div>

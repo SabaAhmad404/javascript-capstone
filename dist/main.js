@@ -138,6 +138,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ getid)\n/* harmony export */ });\nconst listItems = document.querySelector(\".list-items\");\r\nconst like = document.createElement(\"span\");\r\nlike.classList.add(\"heart\");\r\nlike.innerText = \"❤\";\r\nlistItems.append(like);\r\nconst url =\r\n  \"https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/x1JnCaUrbuCma7kL4K33/likes\";\r\nlike.addEventListener(\"click\", async (e) => {\r\n  e.preventDefault();\r\n  await fetch(url, {\r\n    method: \"POST\",\r\n    body: JSON.stringify({\r\n      item_id: \"item1\",\r\n    }),\r\n    headers: {\r\n      \"Content-Type\": \"application/json;charset=UTF-8\",\r\n    },\r\n  });\r\n  document.forms[0].reset();\r\n});\r\nconst getid = (id) => {\r\n  console.log(id, \"hello\");\r\n};\r\n\r\n\n\n//# sourceURL=webpack://javascript-capstone/./src/modules/postlikes.js?");
 
+
 /***/ }),
 
 /***/ "./src/modules/reservation/getdatainvo.js":

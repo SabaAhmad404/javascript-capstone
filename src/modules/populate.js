@@ -6,7 +6,10 @@ import postLikes from './postlikes.js';
 // import sendLikes from './likesget.js';
 
 import commentPopup from './commentPoke.js';
-// import { getDiffieHellman } from "crypto";
+import getData from './comments/getData.js';
+import commentPopup from './comments/commentPoke.js';
+import show from './reservation/showinvo.js';
+
 
 const reseclose = document.getElementById('reseclose');
 const submit = document.getElementById('submit');
@@ -37,6 +40,7 @@ const popupData = async (id) => {
   await pokidata(id);
   await getpost(id1);
   // await getid(id1);
+  show(await getpost(id1));
 };
 
 const display = (data) => {
@@ -96,11 +100,16 @@ const display = (data) => {
 
         BtnComment.addEventListener('click', () => {
           commentPopup(data);
+
           document
             .querySelector('.CommentPopupSection')
             .classList.remove('hidden');
+
+          getData(data.id);
+          document.querySelector('.CommentPopupSection').classList.remove('hidden');
+
           document.querySelector('.overlay').classList.remove('hidden');
-          // overlay.classList.remove('hidden');
+          popupData(data.id);
         });
 
         likesBtn.addEventListener('click', async () => {
@@ -139,6 +148,7 @@ submit.addEventListener('click', async () => {
     date_start: sdate,
     date_end: edate,
   });
-  await getpost(id1);
+  show(await getpost(id1));
 });
+
 export { recivedata as default };

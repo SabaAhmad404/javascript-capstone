@@ -26,6 +26,7 @@ const commentPopup = (data) => {
     `;
 
   closeCommentBtn.addEventListener('click', () => {
+    window.location.reload(true);
     comentPopSection.classList.add('hidden');
     overlay.classList.add('hidden');
   });
