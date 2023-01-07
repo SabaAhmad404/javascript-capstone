@@ -156,6 +156,9 @@ submit.addEventListener('click', async () => {
     date_end: edate,
   });
   show(await getpost(id1));
+  subname.value = '';
+  start.value = '';
+  end.value = '';
 });
 
 export { recivedata as default };

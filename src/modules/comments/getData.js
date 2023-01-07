@@ -26,15 +26,15 @@ const getData = (data) => {
   };
 
   const getpost = async () => {
-    const response = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/QMi7IVnLIBx9LsDFnmic/comments?item_id='.concat(id));
+    const response = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/DTPQtYJyysvaJ8E5Wp3M/comments?item_id='.concat(id));
     const convert = await response.json();
     show(convert);
     return convert;
   };
-
+  getpost();
   submitComment.addEventListener('click', async () => {
     if (userName.value !== '' && userComment.value !== '') {
-      await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/QMi7IVnLIBx9LsDFnmic/comments',
+      await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/DTPQtYJyysvaJ8E5Wp3M/comments',
         {
           method: 'POST',
           body: JSON.stringify({
@@ -48,6 +48,8 @@ const getData = (data) => {
           },
         });
       getpost();
+      userName.value = '';
+      userComment.value = '';
     }
   });
 };
