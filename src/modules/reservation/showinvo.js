@@ -1,6 +1,10 @@
-/* eslint-diable */
+import itemCounter from './counter.js';
+
+const reservationCount = document.getElementById('count_reservation');
+
 const time = document.getElementById('time');
 const show = (data) => {
+  time.innerHTML = '';
   if (data.length > 0) {
     time.innerHTML = '';
     data.forEach((comment) => {
@@ -11,7 +15,9 @@ const show = (data) => {
       time.appendChild(li);
     });
   } else {
-    time.innerHTML = '<span class="data">No data about this pokemon</span>';
+    time.innerHTML = '';
   }
+
+  itemCounter(reservationCount, time);
 };
 export default show;
