@@ -81,7 +81,6 @@ const display = (data) => {
           getData(data.id);
           document.querySelector('.CommentPopupSection').classList.remove('hidden');
           document.querySelector('.overlay').classList.remove('hidden');
-
         });
 
         likesBtn.addEventListener('click', () => {
@@ -103,7 +102,6 @@ window.addEventListener('load', async () => {
 });
 
 reseclose.addEventListener('click', () => document.getElementById('resevation').classList.add('resevationhide'));
-
 
 submit.addEventListener('click', async () => {
   const namev = subname.value;
