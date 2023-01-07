@@ -22,7 +22,7 @@
   </head>
   <body>
     <header>
-      <ul>
+      <ul class="nav-menu">
         <li>Home</li>
         <li>Favorite</li>
         <li><a href="https://pokeapi.co/">Api-Link</a></li>
@@ -50,6 +50,35 @@
       </form>
   </div>
     </section>
+
+    
+    <!-- comment section -->
+    
+    <section class="CommentPopupSection hidden">
+      <button class="close-coments"> &times;</button>
+      <div class="pComments">
+        <!-- dynamic coments here -->
+
+      </div>
+
+    <section class="coment-list">
+        <h2> Comments <sub class="coment-count"></sub></h2>
+        <ul class="Comment-dispaly mComment" >
+            
+        </ul>
+    </section>
+      <section class="coment-form-section">
+        <form >
+            <label>Your name</label>
+            <input type="text" placeholder="Your name" id="User-name" class="name" required>
+            <label>Your comment</label>
+            <textarea  id="User-comment" cols="30" rows="10" required> </textarea>
+            <input type="button" class="Csubmit" id="btnComment" value="commet">
+        </form>
+    </section>
+      
+    </section>
+    <div class="overlay hidden"></div>
     <footer>Created by George, saba and hassaan under cc license</footer>
   </body>
   <script src="index.js"></script>

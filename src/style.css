@@ -6,7 +6,7 @@ header {
   color: rgb(250, 250, 248);
 }
 
-ul {
+.nav-menu {
   display: flex;
   font-size: 1.5rem;
   justify-content: center;
@@ -18,7 +18,7 @@ ul {
   list-style: none;
 }
 
-li :last-child {
+.nav-menu li :last-child {
   text-decoration: none;
   color: beige;
 }
@@ -189,7 +189,8 @@ form {
   font-size: 1.2rem;
 }
 
-.rsubmit {
+.rsubmit,
+.Csubmit {
   width: 9rem;
   margin-top: 12px;
   font-size: 1.4rem;
@@ -253,4 +254,79 @@ form {
   width: 100%;
   align-items: center;
   margin-bottom: 3rem;
+}
+
+.CommentPopupSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: bisque;
+  gap: 20px;
+  border: 1px solid rgb(13, 73, 151);
+  border-radius: 30px;
+  height: 100%;
+  width: 60%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  top: 0;
+  margin: 5px 20%;
+  position: fixed;
+  z-index: 10;
+}
+
+.comentImg {
+  width: 400px;
+  height: 400px;
+}
+
+.close-coments {
+  width: 50px;
+  background-color: bisque;
+  font-size: 40px;
+  font-weight: 700;
+  margin-left: 90%;
+  border: none;
+}
+
+.close-coments:hover {
+  border: #485d5b solid 2px;
+  border-radius: 10px;
+  background-color: red;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  z-index: 5;
+}
+
+.mComment {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-left: 5%;
+  margin-top: 20px;
+  padding: 5px;
+  margin-bottom: 20px;
+  height: auto;
+  width: 500px;
+  text-align: start;
+  font-size: 20px;
+}
+
+.coment-list h2 {
+  text-align: center;
+}
+
+.newComentList {
+  list-style: none;
+}
+
+.hidden {
+  display: none;
 }

@@ -1,7 +1,11 @@
 import pokidata from './reservation/getdatapoki.js';
 import postdata from './reservation/postdatainvo.js';
 import getpost from './reservation/getdatainvo.js';
+
+import getData from './comments/getData.js';
+import commentPopup from './comments/commentPoke.js';
 import show from './reservation/showinvo.js';
+
 
 const reseclose = document.getElementById('reseclose');
 const submit = document.getElementById('submit');
@@ -75,6 +79,10 @@ const display = (data) => {
         pokeCommentSec.append(BtnComment, BtnConserve);
 
         BtnComment.addEventListener('click', () => {
+          commentPopup(data);
+          getData(data.id);
+          document.querySelector('.CommentPopupSection').classList.remove('hidden');
+          document.querySelector('.overlay').classList.remove('hidden');
           popupData(data.id);
         });
 
